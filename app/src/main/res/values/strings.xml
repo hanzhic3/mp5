@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">mp5</string>
+    <string name="start">start</string>
+    <string name="right">right</string>
+    <string name="wrong">wrong</string>
+    <string name="practice">practice</string>
+    <string name="end">end</string>
+    <string name="done">done</string>
 </resources>
