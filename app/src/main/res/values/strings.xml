@@ -6,4 +6,6 @@
     <string name="practice">practice</string>
     <string name="end">end</string>
     <string name="done">done</string>
+    <string name="please_keep_two_decimal_places">please keep two decimal places</string>
+    <string name="your_answer">your answer</string>
 </resources>

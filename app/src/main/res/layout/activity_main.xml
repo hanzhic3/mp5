@@ -39,6 +39,26 @@
             android:text="@string/end"
             android:visibility="invisible" />
 
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@string/your_answer" />
+
+        <TextView
+            android:id="@+id/tip"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="@string/please_keep_two_decimal_places" />
+
         <Button
             android:id="@+id/done"
             android:layout_width="match_parent"
