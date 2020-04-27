@@ -1,7 +1,11 @@
 package com.example.mp5;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.TextView;
+
 
 import java.text.DecimalFormat;
 import java.util.Random;
@@ -18,35 +22,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean result(double userResult) {
-        if (userResult == rightResult) {
-            return true;
-        }
-        return false;
+        return userResult == rightResult;
     }
 
-    private String getpractice() {
+    @SuppressLint("SetTextI18n")
+    private void getpractice() {
         Random randomnumber = new Random();
-        DecimalFormat form = new DecimalFormat("0.0");
-        String number1 = form.format(randomnumber.nextDouble() * 100);
-        String number2 = form.format(randomnumber.nextDouble() * 100);
-        double numbera = Double.parseDouble(number1);
-        double numberb = Double.parseDouble(number2);
+        DecimalFormat form = new DecimalFormat("0.00");
+        int number1 = randomnumber.nextInt(100);
+        int number2 = randomnumber.nextInt(100);
+        String numbera = String.valueOf(number1);
+        String numberb = String.valueOf(number2);
         int number = randomnumber.nextInt(4);
+        TextView question = findViewById(R.id.question);
         switch (number) {
             case 0:
-                rightResult = numbera + numberb;
-                return number1 + "+" + number2 + "=";
+                rightResult = number1 + number2;
+                question.setText(numbera + "+" + numberb + "=");
             case 1:
-                rightResult = numbera - numberb;
-                return number1 + "-" + number2 + "=";
+                rightResult = number1 - number2;
+                question.setText(numbera + "-" + numberb + "=");
             case 2:
-                rightResult = numbera * numberb;
-                return number1 + "*" + number2 + "=";
+                rightResult = number1 * number2;
+                question.setText(numbera + "*" + numberb + "=");
             case 3:
-                /*需要完善除法小数点问题*/
-                rightResult = numbera / numberb;
-                return number1 + "/" + number2 + "=";
+                rightResult = Double.parseDouble(form.format(number1 / number2));
+                question.setText(numbera + "/" + numberb + "=");
         }
-        return "Wrong";
     }
 }
