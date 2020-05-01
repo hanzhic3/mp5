@@ -50,8 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
-            android:text="@string/your_answer" />
+            android:hint="@string/your_answer"
+            android:inputType="numberDecimal" />
 
         <TextView
             android:id="@+id/tip"

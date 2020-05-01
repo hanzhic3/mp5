@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -25,6 +26,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getpractice();
+        Button done = findViewById(R.id.done);
+        done.setOnClickListener(v -> {
+            afterDone();
+        });
+
+        Button practice = findViewById(R.id.practice);
+        practice.setOnClickListener(v -> {
+            findViewById(R.id.right).setVisibility(View.INVISIBLE);
+            findViewById(R.id.wrong).setVisibility(View.INVISIBLE);
+            findViewById(R.id.end).setVisibility(View.INVISIBLE);
+            findViewById(R.id.practice).setVisibility(View.INVISIBLE);
+            EditText answer = findViewById(R.id.answer);
+            answer.setText("");
+            getpractice();
+        });
+
+        Button end = findViewById(R.id.end);
+        end.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     @SuppressLint("SetTextI18n")
@@ -54,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void afterDone() {
+        EditText answer = findViewById(R.id.answer);
+        userResult = Double.parseDouble(answer.getText().toString());
         if (userResult == rightResult) {
             findViewById(R.id.right).setVisibility(View.VISIBLE);
             findViewById(R.id.practice).setVisibility(View.VISIBLE);
@@ -64,22 +87,5 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.end).setVisibility(View.VISIBLE);
         }
 
-    }
-
-    public void getResult() {
-        Button done = findViewById(R.id.done);
-        done.setOnClickListener(v -> {
-            afterDone();
-        });
-
-        Button practice = findViewById(R.id.practice);
-        practice.setOnClickListener(v -> {
-            getpractice();
-        });
-
-        Button end = findViewById(R.id.end);
-        end.setOnClickListener(v -> {
-            finish();
-        });
     }
 }
