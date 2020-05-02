@@ -8,4 +8,5 @@
     <string name="done">done</string>
     <string name="please_keep_two_decimal_places">please keep two decimal places</string>
     <string name="your_answer">your answer</string>
+    <string name="rightanswer">rightanswer</string>
 </resources>
