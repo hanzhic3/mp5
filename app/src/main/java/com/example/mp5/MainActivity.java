@@ -18,19 +18,13 @@ public class MainActivity extends AppCompatActivity {
     /* the right result. */
     private double rightResult;
 
-    /* the user result. */
-    private double userResult;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getpractice();
         Button done = findViewById(R.id.done);
-        done.setOnClickListener(v -> {
-            afterDone();
-        });
-
+        done.setOnClickListener(v -> afterDone());
         Button practice = findViewById(R.id.practice);
         practice.setOnClickListener(v -> {
             findViewById(R.id.right).setVisibility(View.INVISIBLE);
@@ -43,9 +37,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button end = findViewById(R.id.end);
-        end.setOnClickListener(v -> {
-            finish();
-        });
+        end.setOnClickListener(v -> finish());
     }
 
     @SuppressLint("SetTextI18n")
@@ -76,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void afterDone() {
         EditText answer = findViewById(R.id.answer);
-        userResult = Double.parseDouble(answer.getText().toString());
+        double userResult = Double.parseDouble(answer.getText().toString());
         if (userResult == rightResult) {
             findViewById(R.id.right).setVisibility(View.VISIBLE);
             findViewById(R.id.practice).setVisibility(View.VISIBLE);
